@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+	<title>Filtragem de Salas - Treinamento</title>
+	<style>
+		body { font-family: system-ui, Arial, sans-serif; margin: 2rem; background:#f7f7f8; color:#222; }
+		h1 { font-size: 1.6rem; margin-bottom: 1rem; }
+		.filtros { display:flex; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.25rem; align-items:center; }
+		.filtros label { display:flex; gap:.5rem; align-items:center; font-weight:500; }
+		input[type="text"] { padding:.5rem .75rem; border:1px solid #ccc; border-radius:6px; min-width:240px; }
+		ul#lista-salas { list-style:none; padding:0; margin:0; display:grid; gap:.5rem; }
+		ul#lista-salas li { background:#fff; border:1px solid #ddd; padding:.75rem 1rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+		.tag { font-size:.7rem; letter-spacing:.5px; text-transform:uppercase; padding:2px 6px; border-radius:4px; }
+		.tag.disponivel { background:#d1fae5; color:#065f46; }
+		.tag.indisponivel { background:#fee2e2; color:#991b1b; }
+		.empty { padding:1rem; background:#fff; border:1px dashed #bbb; border-radius:8px; text-align:center; color:#555; }
+		footer { margin-top:2rem; font-size:.75rem; color:#666; }
+	</style>
+</head>
+
+<body>
+	<h1 id="titulo">Filtragem de uma Lista de Salas</h1>
+	<p style="max-width:720px">Exercício de prática: manipular um <code>array</code> de objetos e aplicar filtros dinâmicos (por nome e disponibilidade). Digite no campo ou marque o checkbox para ver a lista mudar em tempo real.</p>
+	<div class="filtros">
+		<label>
+			<input type="checkbox" id="chk-disponiveis" />
+			Mostrar apenas salas disponíveis
+		</label>
+		<label for="txt-nome" style="flex:1; min-width:240px;">
+			<span style="display:block; font-size:.75rem; font-weight:600; letter-spacing:.5px; color:#444;">Filtrar por nome</span>
+			<input type="text" id="txt-nome" placeholder="Ex.: Auditório, Paixão..." />
+		</label>
+	</div>
+
+	<div id="resultado" aria-live="polite">
+		<ul id="lista-salas"></ul>
+	</div>
+
+	<footer>
+		&copy; 2025 Treinamento Arrays. Modifique o código para experimentar outros filtros (capacidade mínima, etc.).
+	</footer>
+
+  
+  <script src="./filtragem_dados_array.js"></script>
+	<script>
+
+	</script>
+</body>
+</html>
