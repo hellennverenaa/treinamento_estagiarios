@@ -25,3 +25,20 @@ const salas = [
     { nome: "Auditorio Fab. 1", capacidade: 25, disponivel: true },
     { nome: "Auditorio Fab. 2", capacidade: 30, disponivel: false }
 ];
+
+const salasContainer = document.getElementById("lista-salas")
+
+function filtrarSalas(textoBusca, mostrarDisponiveis) {
+  let salasFiltradas = salas;
+   return salasFiltradas;
+}
+
+function filtrarSalas(textoBusca, mostrarDisponiveis) {
+    let salasFiltradas = salas.filter(sala => {
+        const nomeSala = sala.nome.toLowerCase();
+        const textoBuscaFormatado = textoBusca.toLowerCase();
+        return nomeSala.includes(textoBuscaFormatado);
+    });
+     return salasFiltradas;
+}
+
