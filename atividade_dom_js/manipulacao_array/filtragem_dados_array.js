@@ -39,7 +39,7 @@ function normalizeText(text) {
     .trim();
 }
 
-// Função de filtragem com a opção de recebe texto de busca s
+// Função de filtragem com a opção de recebe texto de busca
 function filtrarSalas(textoBusca, mostrarDisponiveis) {
   const termo = normalizeText(textoBusca);
 
@@ -66,7 +66,39 @@ function desenharSalas(lista) {
 
   lista.forEach(sala => {
     const li = document.createElement("li");
-    li.textContent = sala.nome; // mostra apenas o nome
+    
+    // estrutura: nome à esquerda, info (capacidade + tag) à direita
+    const left = document.createElement("div"); 
+    left.textContent = sala.nome;
+
+    const right = document.createElement("div");
+    right.style.display = "flex";
+    right.style.gap = "0.75rem";
+    right.style.alignItems = "center";
+
+    const capacidade = document.createElement("span");
+    capacidade.style.fontSize = "0.9rem";
+    capacidade.textContent = `${sala.capacidade} lugares`;
+
+    const checkDisponibilidade =(sala) => {
+      if (sala.disponivel) {
+        return "Disponível"
+      } else {
+        return "Não Disponível"
+      }
+    }
+
+    const tag = document.createElement("span")
+     tag.style.fontSize = "0.9rem";
+    tag.textContent = checkDisponibilidade(sala);
+     
+    right.appendChild(tag);
+
+    right.appendChild(capacidade);
+  
+    li.appendChild(left);
+    li.appendChild(right);
+
     listaSalas.appendChild(li);
   });
 }
@@ -81,7 +113,7 @@ function atualizarLista() {
   desenharSalas(resultado);
 }
 
-// Eventos: filtra ao digitar e ao marcar/desmarcar o checkbox
+// Eventos: filtra quando digita e ao marcar/desmarcar o checkbox
 txtNome.addEventListener("input", atualizarLista);
 chkDisponiveis.addEventListener("change", atualizarLista);
 
